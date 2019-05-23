@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  webapp:
+    build:
+      context: .
+#      args:
+#       - PROXY=http://172.17.0.1:3128
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./sites-enabled:/etc/apache2/sites-enabled
+      - ./ssl/keys:/etc/ssl/apache/keys/
+      - ./ssl/certs:/etc/ssl/apache/certs/
+      - ./logs:/var/log/apache2/
